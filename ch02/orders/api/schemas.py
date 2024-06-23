@@ -22,7 +22,7 @@ class StatusEnum(Enum):
     delivered = "delivered"
 
 
-type QuantityType = Annotated[int, conint(ge=1, strict=True)]
+QuantityType = Annotated[int, conint(ge=1, strict=True)]
 
 
 class OrderItemSchema(BaseModel):
@@ -31,7 +31,7 @@ class OrderItemSchema(BaseModel):
     quantity: Optional[QuantityType] = 1
 
 
-type OrderListType = Annotated[List, conlist(item_type=OrderItemSchema, min_length=1)]
+OrderListType = Annotated[List, conlist(item_type=OrderItemSchema, min_length=1)]
 
 
 class CreateOrderSchema(BaseModel):
