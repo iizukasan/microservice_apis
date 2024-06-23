@@ -1,5 +1,6 @@
 from datetime import datetime
 from enum import Enum
+from typing_extensions import Annotated
 from typing import List, Optional
 from uuid import UUID
 
@@ -21,13 +22,16 @@ class StatusEnum(Enum):
     delivered = "delivered"
 
 
-type QuantityType = conint(ge=1, strict=True)
-type OrderListType = conlist(OrderItemSchema, min_items=1)
+type QuantityType = Annotated[int, conint(ge=1, strict=True)]
+
 
 class OrderItemSchema(BaseModel):
     product: str
     size: Size
     quantity: Optional[QuantityType] = 1
+
+
+type OrderListType = Annotated[List, conlist(item_type=OrderItemSchema, min_length=1)]
 
 
 class CreateOrderSchema(BaseModel):
