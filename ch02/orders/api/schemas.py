@@ -42,5 +42,5 @@ class GetOrderSchema(CreateOrderSchema):
     status: StatusEnum
 
 
-class GetOrderSchema(BaseModel):
+class GetOrdersSchema(BaseModel):
     orders: List[GetOrderSchema]
