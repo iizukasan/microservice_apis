@@ -9,7 +9,7 @@ from orders.app import app
 orders = {
     "id": "abcd-1234",
     "status": "delivered",
-    "created": datetime.utcnow(),
+    "created": datetime.now(datetime.UTC),
     "order": {"product": "cappuccino", "size": "medium", "quantity": 1},
 }
 
