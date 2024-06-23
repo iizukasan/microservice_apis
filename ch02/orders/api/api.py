@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from uuid import UUID
 
 from starlette.responses import Response
@@ -10,7 +10,7 @@ from orders.api.schemas import CreateOrderSchema
 orders = {
     "id": "abcd-1234",
     "status": "delivered",
-    "created": datetime.now(datetime.UTC),
+    "created": datetime.now(timezone.utc),
     "order": {"product": "cappuccino", "size": "medium", "quantity": 1},
 }
 
