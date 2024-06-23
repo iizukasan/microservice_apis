@@ -21,14 +21,17 @@ class StatusEnum(Enum):
     delivered = "delivered"
 
 
+type QuantityType = conint(ge=1, strict=True)
+type OrderListType = conlist(OrderItemSchema, min_items=1)
+
 class OrderItemSchema(BaseModel):
     product: str
     size: Size
-    quantity: Optional[conint(ge=1, strict=True)] = 1
+    quantity: Optional[QuantityType] = 1
 
 
 class CreateOrderSchema(BaseModel):
-    order: conlist(OrderItemSchema, min_items=1)
+    order: OrderListType
 
 
 class GetOrderSchema(CreateOrderSchema):
