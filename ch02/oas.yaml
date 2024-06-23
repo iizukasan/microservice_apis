@@ -221,7 +221,7 @@ components:
           enum:
             - small
             - medium
-            - big
+            - large
         quantity:
           type: integer
           format: int64
